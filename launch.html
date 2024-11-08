@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--
+      Temporarily disable cerner-smart-embeddable-lib
+      <link rel='stylesheet' type='text/css' href='./lib/css/cerner-smart-embeddable-lib-1.0.0.min.css'>
+    -->
+  <title>Example-SMART-App</title>
+</head>
+
+<body>
+  <!-- Required JS files to enable this page to embed within an MPage -->
+  <!--
+      Temporarily disable cerner-smart-embeddable-lib
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
+      <script src='./lib/js/cerner-smart-embeddable-lib-1.0.0.min.js'></script>
+    -->
+
+  <!-- FHIR Client JS Library -->
+  <script src='./lib/js/fhir-client.js'></script>
+
+  <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
+  <!-- https://github.com/cerner/fhir-client-cerner-additions -->
+  <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
+  <script>
+    FHIR.oauth2.authorize({
+      'client_id': '5f89e3f0-e0c2-41d8-9027-a66e28dacc71',
+      'scope': 'patient/Patient.read patient/Observation.read patient/MedicationRequest.read patient/Observation.write launch online_access openid profile'
+    });
+
+  </script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyBpyvNtXgyNfBJOZk9uA43L7wSYD5KOlFo",
+      authDomain: "health-interoperability.firebaseapp.com",
+      projectId: "health-interoperability",
+      storageBucket: "health-interoperability.appspot.com",
+      messagingSenderId: "975910207575",
+      appId: "1:975910207575:web:7be43b192e6a1535b82312",
+      measurementId: "G-5C8NCWBDJ3"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+</body>
+
+</html>

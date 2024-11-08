@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="./lib/css/styles.css">
+</head>
+
+<body>
+
+  <div class="grid-container">
+    <header class="header">
+      <div>
+        Patient Name:
+        <span class="banner-value" id="patient_name">..</span>
+        Gender:
+        <span class="banner-value" id="gender">..</span>
+        DOB:
+        <span class="banner-value" id="dob">..</span>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="main-overview">
+        <div class="small-card">
+          <div>Height</div>
+          <div class="ob-value" id="height">undefined</div>
+        </div>
+        <div class="small-card">
+          <div>
+            
+                <p32 style="white-space: nowrap">Body Weight       </p32>
+                <p33 style="white-space: nowrap">Body Weight Measured</p33>
+                <p36 style="white-space: nowrap">Body Weight Stated  </p36>
+                <p33 style="white-space: nowrap">Body Weight Reported</p33>
+                <p36 style="white-space: nowrap">Body Weight Calculation</p36>
+            
+          </div>
+          <div class="ob-value">
+                <p34 id="weight">undefined<br></p34>
+                <p35 id="weightMeasured">undefined</p35>
+                <p37 id="weightStated">undefined</p37>
+                <p35 id="weightReported">undefined</p35>
+                <p37 id="weightCalc">undefined</p37>
+          </div>
+        </div>
+        <div class="small-card">
+          <div>Systolic Blood Pressure</div>
+          <div class="ob-value" id="sys">undefined</div>
+        </div>
+        <div class="small-card">
+          <div>Diastolic Blood Pressure</div>
+          <div class="ob-value" id="dia">undefined</div>
+        </div>
+        <div class="small-card">
+          <div>LDL</div>
+          <div class="ob-value" id="ldl">undefined</div>
+        </div>
+        <div class="small-card">
+          <div>HDL</div>
+          <div class="ob-value" id="hdl">undefined</div>
+        </div>
+      </div>
+
+      <div class="big-card">
+
+        <div class="card">
+          <div class="title">
+            Medication Requests
+          </div>
+          <ul id="med_list"></ul>
+
+        </div>
+
+        <div class="card" style="display: inline-block">
+
+          <span style="display: inline-block">  <input class="annotation-box" id="hospital" placeholder="Hospital:"> </span>
+          <span style="display: inline-block">  <input class="annotation-box" id="unit" placeholder="Unit:"> </span>
+          <span style="display: inline-block">  <input class="annotation-box" id="author" placeholder="Doctor/Nurse:"> </span>
+          <span style="display: inline-block">  <input class="annotation-box" id="contact" placeholder="Email/Phone:"> </span>
+
+          <span style="height: 50px">  <input  style="height: 50px; vertical-align: bottom; display: inline-block;" class="annotation-box" id="annotation" placeholder="Write your notes here!"> </span>
+
+          <button style="margin-left: 30px; vertical-align: bottom; display: inline-block; margin-top: 33px;" class="annotation-button" id="add">Save Notes <br /></button></span>
+
+          <div style="margin-top: 10px " class="title">
+            <br> <p style="margin-top: 50px;"> Patient Medical History </p></br>
+          </div>
+
+          <div class="annotations">
+            <ol>
+              <li id="note">Patient has not shared their Medical History.</li>
+            </ol>
+          </div>
+
+
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <script src='./lib/js/fhir-client.js'></script>
+  <script src="./lib/js/get-data.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyBpyvNtXgyNfBJOZk9uA43L7wSYD5KOlFo",
+      authDomain: "health-interoperability.firebaseapp.com",
+      projectId: "health-interoperability",
+      storageBucket: "health-interoperability.appspot.com",
+      messagingSenderId: "975910207575",
+      appId: "1:975910207575:web:7be43b192e6a1535b82312",
+      measurementId: "G-5C8NCWBDJ3"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+  <!-- uncomment below script and comment above script to switch for easy local testing -->
+  <!-- <script src="./lib/js/get-data-test.js"></script> -->
+</body>
+
+</html>
